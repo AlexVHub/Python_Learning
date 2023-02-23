@@ -1,16 +1,22 @@
-# This is a sample Python script.
+n = int(input())
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+top = 0
+right = 0
+down = 0
+left = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+for i in range(n):
+    for j in range(n):
+        if i < j and i < n - 1 - j:
+            top += matrix[i][j]
+        if i < j and i > n - 1 - j:
+            right += matrix[i][j]
+        if i > j and i > n - 1 - j:
+            down += matrix[i][j]
+        if i > j and i < n - 1 - j:
+            left += matrix[i][j]
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print('Верхняя четверть:', top)
+print('Правая четверть:', right)
+print('Нижняя четверть:', down)
+print('Левая четверть:', left)
