@@ -5,7 +5,7 @@ def magic_square_check(matrix, summa):  # Функция проверки явл
     global flag
     diagonal = 0
     for i in range(n):
-        if sum(matrix[i]) != summa:  # Проверка равна ли строка параметру summa
+        if sum(matrix[i]) != summa:  # Проверка равна ли каждая строка параметру summa
             flag = 'NO'
             break
         for j in range(n):
