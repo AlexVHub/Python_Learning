@@ -26,7 +26,7 @@ for i in range(n):  # Перевертывание матрицы на 90 гра
     row = []
     for j in range(n):
         row.append(matrix[j][i])
-    rotate_matrix.append(row)
+    rotate_matrix.append(row[::-1])
 
 magic_square_check(matrix, summa)  # Вызов функции для проверки является ли матрица магическим квадратом
 magic_square_check(rotate_matrix, summa)  # Вызов функции для проверки является ли перевернутая матрица маг. квадратом
