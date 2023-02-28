@@ -37,7 +37,7 @@ for i in range(n):  # Перевертывание матрицы на 90 гра
         break
     rotate_matrix.append(row[::-1])
 
-if flag == 'YES':  # Проверка матрицы на соответстие 1,2,3...n^2
+if flag == 'YES':
     magic_square_check(matrix, summa)  # Вызов функции проверки является ли матрица магическим квадратом
     magic_square_check(rotate_matrix, summa)  # Вызов функции проверки является ли перевернутая матрица маг. квадратом
 
