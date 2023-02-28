@@ -19,17 +19,26 @@ def magic_square_check(matrix, summa):  # Функция проверки явл
 
 n = int(input())  # Размерность матрицы
 matrix = [[int(i) for i in input().split()] for _ in range(n)]  # Ввод матрицы
-rotate_matrix = []  # Загатовка перевернутой матрицы
+check_sequences = [i for i in range(1, n * n + 1)]  # Список для проверки элементов матрицы на соответстие 1,2,3...n^2
+rotate_matrix = []  # Заготовка перевернутой матрицы
 summa = sum(matrix[0])  # Сумма элементов первой строки матрицы
 flag = 'YES'  # Признак наличия магического квадрата
 
-for i in range(n):  # Перевертывание матрицы на 90 градусов
+for i in range(n):  # Перевертывание матрицы на 90 градусов и проверка элементов на соответстие 1,2,3...n^2
     row = []
     for j in range(n):
         row.append(matrix[j][i])
+        if matrix[i][j] in check_sequences:
+            check_sequences.remove(matrix[i][j])
+        else:
+            flag = 'NO'
+            break
+    if flag == 'NO':
+        break
     rotate_matrix.append(row[::-1])
 
-magic_square_check(matrix, summa)  # Вызов функции для проверки является ли матрица магическим квадратом
-magic_square_check(rotate_matrix, summa)  # Вызов функции для проверки является ли перевернутая матрица маг. квадратом
+if flag == 'YES':  # Проверка матрицы на соответстие 1,2,3...n^2
+    magic_square_check(matrix, summa)  # Вызов функции проверки является ли матрица магическим квадратом
+    magic_square_check(rotate_matrix, summa)  # Вызов функции проверки является ли перевернутая матрица маг. квадратом
 
 print(flag)  # Вывод флага является ли матрица магическим квадратом YES или NO
