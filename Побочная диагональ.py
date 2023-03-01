@@ -1,1 +1,2 @@
-n = int(input())
+n = 4
+matrix = []
