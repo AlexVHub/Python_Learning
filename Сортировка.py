@@ -5,9 +5,9 @@ def is_valid_triangle(side1, side2, side3):
     else:
         return False
 
-# считываем данные
-# a, b, c = int(input()), int(input()), int(input())
 
+# считываем данные
+a, b, c = int(input()), int(input()), int(input())
 
 # вызываем функцию
-print(is_valid_triangle(2, 2, 2))
+print(is_valid_triangle(a, b, c))
