@@ -1,14 +1,11 @@
 n, m = [int(i) for i in input().split()]
 matrix = [[0] * m for _ in range(n)]
-c = 0
+c = 1
 
 for i in range(n):
-    for j in range(m):
+    for j in range(i + 1):
+        matrix[j][i - j] = c
         c += 1
-        if i % 2:
-            matrix[i][-j - 1] = c
-        else:
-            matrix[i][j] = c
 
 for i in range(n):
     for j in range(m):
