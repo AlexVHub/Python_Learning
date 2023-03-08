@@ -6,7 +6,7 @@ col = 0
 temp = 0
 flag = False
 
-while count < 13:
+while count < 15:
     matrix[row][col] = count
     count += 1
     if flag == False:
@@ -16,12 +16,9 @@ while count < 13:
     col -= 1
     row += 1
     if col < 0 or row > n - 1:
-        temp = col
-#        if row == n:
-#            row -= 1
-#            temp += 1
-        col = row
-        row = temp + 1
+        print(matrix)
+        col = matrix[0].index(0)
+        row = 0
 
 for i in range(n):
     for j in range(m):
