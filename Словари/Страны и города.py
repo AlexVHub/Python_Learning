@@ -7,6 +7,6 @@ for i in range(int(input())):
 for j in range(int(input())):
     t = input()
     for key, value in countries.items():
-        if t == value:
+        if t in value:
             print(key)
-            continue
+            break
