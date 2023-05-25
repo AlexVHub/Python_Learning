@@ -1,20 +1,23 @@
 import random
 
-result = []
+result = dict()
 friends = [input() for _ in range(int(input()))]
-count = ((len(friends) - 1) / 2) - 1
+count = int(len(friends) / 2)
+
 for i in friends:
     temp = []
     for j in friends:
-        if j not in result and j != i:
+        if i != j and j not in result.values():
             temp.append(j)
+    print(temp)
+    print(result)
     while True:
         choice = random.choice(temp)
-        if choice in result:
-            if choice == result.index(choice):
-                count -= 1
-                print(count)
-        result.append(choice)
-        break
+        if choice in result.values():
+            continue
+        else:
+            result.setdefault(i, choice)
+            break
+
 
 print(result)
