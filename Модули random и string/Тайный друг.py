@@ -1,23 +1,15 @@
 import random
 
-result = dict()
-friends = [input() for _ in range(int(input()))]
-count = int(len(friends) / 2)
+people = [input() for _ in range(int(input()))]
+secret_friends = people.copy()
+flag = False
 
-for i in friends:
-    temp = []
-    for j in friends:
-        if i != j and j not in result.values():
-            temp.append(j)
-    print(temp)
-    print(result)
-    while True:
-        choice = random.choice(temp)
-        if choice in result.values():
-            continue
-        else:
-            result.setdefault(i, choice)
+while not flag:
+    random.shuffle(secret_friends)
+    flag = True
+    for i in range(len(people)):
+        if people[i] == secret_friends[i]:
+            flag = False
             break
 
-
-print(result)
+[print(people[i], '-', secret_friends[i]) for i in range(len(people))]
