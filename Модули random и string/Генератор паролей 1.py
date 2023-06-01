@@ -1,9 +1,9 @@
 from string import ascii_letters, digits
 from random import sample
+password_string = ''.join(i for i in (ascii_letters + digits) if i not in 'lIoO01')
 
 
 def generate_password(length):
-    password_string = ''.join(i for i in (ascii_letters + digits) if i not in 'lIoO01')
     return ''.join(sample(password_string, length))
 
 
